@@ -1,0 +1,18 @@
+<svg id="picture-swipe-R" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <filter id="타원_3" x="3" y="6" width="42" height="42" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect id="사각형_57" data-name="사각형 57" width="48" height="48" fill="none"/>
+  <g id="그룹_118" data-name="그룹 118" transform="translate(-2239 -4696)">
+    <g transform="matrix(1, 0, 0, 1, 2239, 4696)" filter="url(#타원_3)">
+      <circle id="타원_3-2" data-name="타원 3" cx="12" cy="12" r="12" transform="translate(12 12)" fill="#f7f5ef"/>
+    </g>
+    <path id="패스_497" data-name="패스 497" d="M691.271,410.2a1.345,1.345,0,0,1-.951-2.3l2.627-2.627-2.855-2.855a1.345,1.345,0,0,1,1.9-1.9l3.807,3.806a1.344,1.344,0,0,1,0,1.9l-3.579,3.579A1.34,1.34,0,0,1,691.271,410.2Z" transform="translate(1570.302 4314.875)" fill="#1f2441"/>
+  </g>
+</svg>

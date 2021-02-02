@@ -1,0 +1,92 @@
+.swiper-container {
+    /*max-height: calc( 100% - 250px);*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    height:calc( 100vh - 250px);
+}
+.swiper-slide > div {
+  width:100%;
+  /*height:100%;*/
+  background:no-repeat center ;
+  background-size:cover;
+  position: relative;
+}
+.swiper-slide > div > .btn{
+  position: absolute;
+  top:70%;
+  left: calc( 50% - 60px);
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  padding: 10px 30px;
+  border-radius: 40px;
+
+  background-color: rgb(31, 147, 173);
+  color: white;
+  font-weight: lighter;
+
+  text-align: left;
+  cursor: pointer;
+
+  -webkit-transition: width 0.2s ease-in-out;
+    -moz-transition: width 0.2s ease-in-out;
+    -o-transition: width 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
+
+}
+.swiper-slide > div > .btn:hover{
+  background-color: white;
+  color: black;
+  width: 90px;
+}
+.swiper-slide > div > .btn:hover > .more_btn{
+  position: absolute;
+  top: 8px;
+  line-height: 30px;
+  right: 35px;
+  color: white;
+  display: block;
+  /*padding: 0px 0px 0px 15px;*/
+}
+.swiper-slide > div > .btn > .more_btn{
+  float:right;
+  display: none;
+  font-size: 30px;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #ffffff;
+}
+/* @media only screen and (min-width: 1442px){
+  .swiper-slide {
+    height:calc( 100vh - 350px);
+  }
+} */
+@media only screen and (max-width: 1068px){
+  .swiper-slide {
+    height:calc( 100vh - 350px);
+  }
+}
+@media only screen and (max-width: 735px){
+  .swiper-slide {
+    height:calc( 100vh - 200px);
+  }
+}

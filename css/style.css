@@ -1,0 +1,363 @@
+@charset "UTF-8";
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-width: 460px;
+    max-width: 500px;
+    font-family: Verdana, sans-serif;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+}
+img {
+    vertical-align: middle;
+}
+li{
+    list-style: none;
+}
+/* main contents */
+#app{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#app ul#allPages{
+    width: 500vw;
+}
+#app ul li.test:nth-child(1){
+    display: block;
+}
+#app ul .test{
+    width: 500px;
+    height: 100vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: none;
+    background: url(../img/main_background.png) top center no-repeat;
+    background-size: contain;
+}
+.left{
+    left: 0;
+}
+.right{
+    right: 0;
+}
+
+.button{
+    position: fixed;
+    bottom: 5vh;
+    z-index: 100;
+    cursor: pointer;
+}
+#left{
+    left: 5vw;
+}
+#right{
+    right: 5vw;
+}
+
+.image{
+    width: 450px;
+    margin: 0 auto;
+}
+
+.contents{
+    width: 450px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    bottom: 5vh;
+    transform: translateX(-50%);
+}
+.contents ul li{
+    width: 100%;
+    color: #000;
+}
+#contact{
+    width: 450px;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+#test6 .contents{
+    top: 0;
+    bottom: none;
+}
+.type1{
+    width: 100%;
+}
+.type1 video, .contents video{
+    width: 100%;
+}
+.videoArea{
+    margin: 0 auto;
+}
+.videoArea video{
+    width: 100%;
+}
+
+#contactLink li{
+    margin: 0 auto 3vh;
+}
+#contactLink li a{
+    color: #fff;
+}
+/* VR 360도 */
+#panorama {
+    width: 100%;
+    height: 25vw;
+    position: relative;
+    margin: 0 auto;
+    z-index: 1000;
+    display: table;
+    -moz-transform-origin: top left;
+    -webkit-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+}
+/* Image Slide */
+.mySlides {display: none}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 50vw;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+.prev{
+    left: 0;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Fading animation */
+.imageFade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.pageSlides{
+  -webkit-animation-name: slidein;
+  -webkit-animation-duration: 1.5s;
+  animation-name: slidein;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@-webkit-keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 1em}
+}
+/* Menu Area */
+#menu {
+  cursor: pointer;
+  display: block;
+  font-size: 1.5rem;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px 20px 0 0;
+  position: fixed;
+  z-index: 30;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 40px;
+}
+#close-menu {
+    color: #333;
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    margin: 20px 20px 0 0;
+    padding: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
+    width: 40px;
+    z-index: 1000;
+  }
+
+menu {
+  background: #FFF;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  right: -100vw;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+menu .container {
+  height: 100%;
+  margin: 10px auto 0;
+  overflow: hidden;
+  position: relative;
+  -webkit-transform-origin: 0% 50% 0px;
+  -moz-transform-origin: 0% 50% 0px;
+  transform-origin: 0% 50% 0px;
+  -webkit-transform: matrix(0.8, 0, 0, 0.9, 40, 0);
+  -moz-transform: matrix(0.8, 0, 0, 0.9, 40, 0);
+  transform: matrix(0.8, 0, 0, 0.9, 40, 0);
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+html.active menu .container {
+  -webkit-transform-origin: 0% 50% 0px;
+  -moz-transform-origin: 0% 50% 0px;
+  transform-origin: 0% 50% 0px;
+  -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+  -moz-transform: matrix(1, 0, 0, 1, 0, 0);
+  transform: matrix(1, 0, 0, 1, 0, 0);
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+menu .container .box {
+  margin-top: 20vh;
+  height: 80vh;
+  overflow: visible;
+
+  position: relative;
+  width: 100%;
+}
+html.active menu {
+  right: 0;
+  z-index: 999;
+}
+
+
+menu ul li{
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.12em;
+  font-size: 1.1em;
+  padding: 5px 0 5px 10px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+menu ul li:last-child {
+  border: 0;
+}
+menu ul li a{
+  display: block;
+}
+menu ul.menu-1st{
+  border-bottom:1px #ededed solid !important;
+}
+menu ul.menu-2nd li{
+  font-size: 1rem;
+  padding-left: 15px;
+}
+menu ul.menu-2nd li:last-child {
+  border-bottom: 0;
+}
+
+menu ul.account{
+  margin-top: 10px;
+}
+menu ul.account li{
+  font-size: 1rem;
+  text-align: center;
+}
+menu ul.account li a{
+  display: inline-block;
+}
