@@ -1,5 +1,16 @@
 @charset "UTF-8";
-
+@font-face {
+  font-family: 'BMJUA';
+  src: url("fonts/BMJUA_ttf.ttf") format("ttf"), url("fonts/BMJUA_otf.otf") format('otf'), url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'NanumSquare';
+  src : url("fonts/NanumSquareB.ttf") format("ttf"),url("fonts/NanumSquareB.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
 
 *{
     margin: 0;
@@ -7,13 +18,16 @@
     box-sizing: border-box;
 }
 body{
-    min-width: 460px;
     max-width: 500px;
+    height: auto;
+    margin-top: 0 !important;
     font-family: Verdana, sans-serif;
     overflow-x: hidden;
 }
 a{
     text-decoration: none;
+    padding: 0;
+    margin: 0;
 }
 img {
     vertical-align: middle;
@@ -21,32 +35,53 @@ img {
 li{
     list-style: none;
 }
+video{
+    width: 100%;
+}
+video div{
+  width: 100%;
+}
+video::-webkit-media-controls{
+  width: 100%;
+}
+video::-webkit-media-controls-panel{
+  width: 100%;
+}
 /* main contents */
+@media (max-width: 899px){
+  #app{width:100vw;}
+}
+@media (min-width: 900px){
+  #app{width:50vw;}
+}
 #app{
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    margin: 0 auto;
-    position: absolute;
-    top: 0;
-    left: 0;
+  max-width: 500px;
+  height: 100vh;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.4);
+  background: url(../img/main_background.png) top center no-repeat;
+  background-size: cover;
 }
-#app ul#allPages{
-    width: 500vw;
+#app > ul#allPages{
+    width: 100%;
 }
-#app ul li.test:nth-child(1){
-    display: block;
+#app > ul#allPages > li.swiper-slide{
+  width: 100%;
+  height: 100vh;
+  background: transparent;
+  flex-direction: column;
 }
-#app ul .test{
-    width: 500px;
-    height: 100vh;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    display: none;
-    background: url(../img/main_background.png) top center no-repeat;
-    background-size: contain;
+.test{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  overflow: scroll;
+  text-align: center;
 }
 .left{
     left: 0;
@@ -54,75 +89,153 @@ li{
 .right{
     right: 0;
 }
-
 .button{
-    position: fixed;
-    bottom: 5vh;
-    z-index: 100;
-    cursor: pointer;
+  position: fixed;
+  z-index: 100;
+  cursor: pointer;
 }
 #left{
-    left: 5vw;
+  left: 8px;
 }
 #right{
-    right: 5vw;
+  right: 8px;
 }
-
 .image{
-    width: 450px;
-    margin: 0 auto;
+  width: 100%;
+  position: static;
 }
-
+.image > img{
+  width: 100%;
+}
 .contents{
-    width: 450px;
-    position: absolute;
+    width: calc(100% - 48px) !important;
+    margin: 0 auto;
+    padding-bottom: 5vh;
     text-align: center;
-    left: 50%;
-    bottom: 5vh;
-    transform: translateX(-50%);
 }
-.contents ul li{
+.contents > ul > li{
     width: 100%;
     color: #000;
 }
+#home-content{
+  margin: -2% auto 0;
+}
+.context{
+    width: 100%;
+    margin-bottom: 3vh;
+}
+.context > .subTitle{
+    font-family: 'BMJUA';
+    font-size: 40px;
+    line-height: 48px;
+    color: #212742;
+}
+#godlovesyou{
+    font-family: 'BMJUA';
+    font-size: 24px;
+    line-height: 32px;
+    color: #F26744;
+    margin: 16px 0 20px;
+}
+.context > .description{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    word-break: keep-all;
+    color: #3C3E46;
+}
+#test2 > .contents > .context{
+  margin-top: 20px;
+}
+#test7 .contents{
+  font-size: 40px;
+  font-family: "BMJUA";
+  padding: 0;
+}
+#test7 .contents  #senior-story{
+  margin: 80px 0 24px;
+}
+#test8 > .contents{
+  height: auto !important;
+}
+
+.videoArea{
+    margin: 0 auto 32px;
+}
+.videoArea > .title{
+    font-family: 'BMJUA';
+    font-size: 16px;
+    line-height: 24px;
+    margin: 4px 0 8px;
+}
+.videoArea > .description{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 12px;
+}
 #contact{
-    width: 450px;
     position: absolute;
-    text-align: center;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    top: 50%;
 }
-
-#test6 .contents{
-    top: 0;
-    bottom: none;
+#contact div{
+  font-family: "BMJUA";
+  font-size: 40px;
+  line-height: 48px;
 }
-.type1{
-    width: 100%;
+#contactWelcome{
+  width: 100%;
+  margin-bottom: -16px;
+  margin-left: -90px;
 }
-.type1 video, .contents video{
-    width: 100%;
+#contactWelcome > img{
+  width: 35%;
 }
-.videoArea{
-    margin: 0 auto;
+#contactLink{
+  margin-top: 48px;
 }
-.videoArea video{
-    width: 100%;
+#contactLink > li{
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    margin-bottom: 15px;
+    border-radius: 16px;
 }
-
-#contactLink li{
-    margin: 0 auto 3vh;
+#contactLink > li:nth-child(1){
+    background: #F26744;
 }
-#contactLink li a{
-    color: #fff;
+#contactLink > li:nth-child(2){
+    background: #67BDAC;
+}
+#contactLink > li:nth-child(3){
+    background: #8193BC;
+}
+#contactLink > li > a{
+  width: 100%;
+  font-size: 16px;
+  padding-top: 16px;
+  display: block;
+  color: #fff;
+}
+#contactLink > li > a > img{
+    position: absolute;
+    left: 36px;
+}
+#contactLink > li > a > span{
+  margin-left: 36px;
+}
+#c-bg{
+  width: 40%;
+  position:absolute;
+  right: 0;
+  bottom: 0;
 }
 /* VR 360도 */
 #panorama {
     width: 100%;
-    height: 25vw;
+    height: 15vh;
     position: relative;
-    margin: 0 auto;
     z-index: 1000;
     display: table;
     -moz-transform-origin: top left;
@@ -130,141 +243,48 @@ li{
     -ms-transform-origin: top left;
     transform-origin: top left;
 }
-/* Image Slide */
-.mySlides {display: none}
-/* Slideshow container */
-.slideshow-container {
-  max-width: 50vw;
-  position: relative;
-  margin: auto;
+.pnlm-zoom-controls{
+  display:none !important;
 }
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-.prev{
-    left: 0;
-}
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* Fading animation */
-.imageFade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-.pageSlides{
-  -webkit-animation-name: slidein;
-  -webkit-animation-duration: 1.5s;
-  animation-name: slidein;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@-webkit-keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
-    to {
-        margin-left: 0;
-        width: 100%;
-    }
-}
-
-@keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
-    to {
-        margin-left: 0;
-        width: 100%;
-    }
+.slideTitle{
+  width: 140px;
+  height: 60px;
+  background: url(../img/slide-title.svg) top center no-repeat;
+  margin-bottom: -24px;
+  padding: 8px 30px 0 0;
+  color: #fffefa;
+  font-family: "BMJUA";
+  font-size: 22px;
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 1em}
+  .prev, .next, .text {font-size: 1em}
 }
 /* Menu Area */
 #menu {
-  cursor: pointer;
-  display: block;
-  font-size: 1.5rem;
-  height: 40px;
-  line-height: 40px;
-  margin: 20px 20px 0 0;
-  position: fixed;
-  z-index: 30;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: 40px;
+    cursor: pointer;
+    display: block;
+    width: 44px;
+    height: 44px;
+    margin: 12px 11px 0 0;
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    right: 0;
+
 }
 #close-menu {
     color: #333;
     cursor: pointer;
     display: block;
-    height: 30px;
-    line-height: 30px;
-    margin: 20px 20px 0 0;
-    padding: 4px;
+    width: 44px;
+    height: 44px;
+    margin: 12px 11px 0 0;
     position: absolute;
     right: 0;
     top: 0;
-    text-align: center;
-    width: 40px;
     z-index: 1000;
   }
 
@@ -276,7 +296,7 @@ menu {
   position: fixed;
   right: -100vw;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
   -webkit-transition: all .5s ease-in-out;
   -moz-transition: all .5s ease-in-out;
@@ -286,36 +306,34 @@ menu {
 menu .container {
   height: 100%;
   margin: 10px auto 0;
-  overflow: hidden;
   position: relative;
-  -webkit-transform-origin: 0% 50% 0px;
-  -moz-transform-origin: 0% 50% 0px;
-  transform-origin: 0% 50% 0px;
-  -webkit-transform: matrix(0.8, 0, 0, 0.9, 40, 0);
-  -moz-transform: matrix(0.8, 0, 0, 0.9, 40, 0);
-  transform: matrix(0.8, 0, 0, 0.9, 40, 0);
-  -webkit-transition: all .5s ease-in-out;
-  -moz-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
-}
-html.active menu .container {
-  -webkit-transform-origin: 0% 50% 0px;
-  -moz-transform-origin: 0% 50% 0px;
-  transform-origin: 0% 50% 0px;
+
   -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
   -moz-transform: matrix(1, 0, 0, 1, 0, 0);
   transform: matrix(1, 0, 0, 1, 0, 0);
-  -webkit-transition: all .5s ease-in-out;
-  -moz-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+html.active menu .container {
+  -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+  -moz-transform: matrix(1, 0, 0, 1, 0, 0);
+  transform: matrix(1, 0, 0, 1, 0, 0);
+
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  transition: all .3s ease-in;
 }
 menu .container .box {
-  margin-top: 20vh;
-  height: 80vh;
+  margin-top: 25%;
+  height: 75%;
   overflow: visible;
-
   position: relative;
   width: 100%;
+
+  font-family: "NanumSquare";
+  font-size: 16px;
+  font-weight: bold;
 }
 html.active menu {
   right: 0;
@@ -327,10 +345,8 @@ menu ul li{
   display: block;
   font-weight: bold;
   text-align: center;
-  letter-spacing: 0.12em;
   font-size: 1.1em;
-  padding: 5px 0 5px 10px;
-  margin-bottom: 30px;
+  margin-bottom: 5vh;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -338,7 +354,12 @@ menu ul li:last-child {
   border: 0;
 }
 menu ul li a{
-  display: block;
+    display: block;
+    color: #333;
+}
+menu ul li:nth-child(1) a{
+  color: orange !important;
+  font-weight: bolder;
 }
 menu ul.menu-1st{
   border-bottom:1px #ededed solid !important;
@@ -360,4 +381,72 @@ menu ul.account li{
 }
 menu ul.account li a{
   display: inline-block;
+}
+
+/* swipe */
+.swiper-container #test7{
+  overflow: scroll !important;
+}
+.swiper-button-next, .swiper-button-prev{
+  width: auto !important;
+  margin-top: 0;
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev, .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+  background: transparent !important;
+  opacity: 0.7;
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
+
+/* slick */
+.slick-prev:before, .slick-next:before{
+  color: black !important;
+}
+.slick-prev:before{
+  content: url(../img/swipe-L.svg);
+}
+.slick-next:before{
+  content: url(../img/swipe-R.svg);
+}
+.slick-prev, .slick-next{
+  z-index: 11;
+  top: 40% !important;
+}
+.slick-prev{
+  left: -24px !important;
+}
+.slick-next{
+  right: 4px !important;
+}
+.slick-dots li{
+  width: auto !important;
+}
+.one-time{
+  height: 15vh;
+}
+.slick-track div.slick-slide:nth-child(odd){
+    padding-right: 10px;
+}
+.slick-track div.slick-slide:nth-child(even){
+    padding-left: 10px;
+}
+
+.slideBox{
+  width: 100%;
+}
+.slickBox > .mask, .slickBox.mask{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.slickBox > .mask > img{
+  width: 100%;
+  height: 15vh;
+  object-fit: cover;
+}
+.slickBox > #panorama{
+  object-fit: cover;
 }
