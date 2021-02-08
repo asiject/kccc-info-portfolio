@@ -150,11 +150,17 @@ video::-webkit-media-controls-panel{
 }
 #test7 .contents{
   font-size: 40px;
+  line-height: 48px;
   font-family: "BMJUA";
   padding: 0;
 }
 #test7 .contents  #senior-story{
-  margin: 80px 0 24px;
+  margin: 80px 0 8px;
+}
+#senior-story-subtitle{
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 20px;
 }
 #test8 > .contents{
   height: auto !important;
@@ -172,6 +178,7 @@ video::-webkit-media-controls-panel{
 .videoArea > .description{
     font-family: 'NanumSquare', sans-serif;
     font-size: 12px;
+    line-height: 21px;
 }
 #contact{
     margin-top: 202px;
