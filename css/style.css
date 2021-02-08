@@ -174,10 +174,7 @@ video::-webkit-media-controls-panel{
     font-size: 12px;
 }
 #contact{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 202px;
 }
 #contact div{
   font-family: "BMJUA";
@@ -186,20 +183,21 @@ video::-webkit-media-controls-panel{
 }
 #contactWelcome{
   width: 100%;
-  margin-bottom: -16px;
-  margin-left: -90px;
+  position: absolute;
+  left: -90px;
+  top: 160px;
 }
 #contactWelcome > img{
-  width: 35%;
+  height: 42px;
 }
 #contactLink{
-  margin-top: 48px;
+  margin-top: 60px;
 }
 #contactLink > li{
-    width: 200px;
+    width: 180px;
     height: 60px;
     text-align: center;
-    margin: 0 auto 15px;
+    margin: 0 auto 28px;
     border-radius: 16px;
 }
 #contactLink > li:nth-child(1){
@@ -214,17 +212,34 @@ video::-webkit-media-controls-panel{
 #contactLink > li > a{
   width: 100%;
   height: 100%;
-  font-size: 16px;
-  padding-top: 16px;
+  font-family: 'NanumSquare';
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #fffefa;
   display: block;
-  color: #fff;
+
 }
-#contactLink > li > a > img{
-    position: absolute;
-    left: 36px;
+#contactLink > li > a > .sns-img{
+  display: block;
+  float: left;
+  width: 48px;
+  height: 48px;
+  margin: 6px 8px 0 12px;
+  text-align: center;
 }
-#contactLink > li > a > span{
-  margin-left: 36px;
+#contactLink > li > a > .sns-img > img{
+  width: 48px;
+  height: 48px;
+}
+#contactLink > li > a > .sns-text{
+  display: block;
+  float: left;
+  text-align: left;
+  padding-top: 12px;
+}
+#contactLink > li:nth-child(3) > a > .sns-text{
+  padding-top: 22px;
 }
 #c-bg{
   width: 40%;

@@ -1,10 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-  <g id="그룹_13" data-name="그룹 13" transform="translate(31.702)">
-    <rect id="사각형_34" data-name="사각형 34" width="24" height="24" transform="translate(-31.702)" fill="none"/>
-    <g id="그룹_14" data-name="그룹 14" transform="translate(1)">
-      <path id="패스_106" data-name="패스 106" d="M-29.361,10.442s10.7-4.222,18.068-7.658c0,0-13.693,10.755-15.134,11.42A27.229,27.229,0,0,1-29.361,10.442Z" fill="none" stroke="#fffefa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-      <path id="패스_107" data-name="패스 107" d="M-23.406,16.5-11.293,2.784S-17.224,18.3-18.166,20.132C-18.166,20.132-22.076,17.558-23.406,16.5Z" fill="none" stroke="#fffefa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-      <path id="패스_108" data-name="패스 108" d="M-26.427,14.2s.557,4.376.834,5.54c0,0,1.29-1.23,3.045-2.6" fill="none" stroke="#fffefa" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <g id="그룹_127" data-name="그룹 127" transform="translate(-104 -436)">
+    <rect id="사각형_70" data-name="사각형 70" width="48" height="48" transform="translate(104 436)" fill="none" opacity="0.996"/>
+    <g id="그룹_13" data-name="그룹 13" transform="translate(150.702 451)">
+      <rect id="사각형_34" data-name="사각형 34" width="18" height="18" transform="translate(-31.702)" fill="none"/>
+      <g id="그룹_14" data-name="그룹 14" transform="translate(-29.196 2.088)">
+        <path id="패스_106" data-name="패스 106" d="M-29.361,8.528s8.022-3.167,13.551-5.744c0,0-10.27,8.066-11.35,8.565A20.421,20.421,0,0,1-29.361,8.528Z" transform="translate(29.361 -2.784)" fill="none" stroke="#fffefa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="패스_107" data-name="패스 107" d="M-23.406,13.075l9.085-10.291S-18.77,14.423-19.476,15.8C-19.476,15.8-22.408,13.865-23.406,13.075Z" transform="translate(27.872 -2.784)" fill="none" stroke="#fffefa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="패스_108" data-name="패스 108" d="M-26.427,14.2s.418,3.282.625,4.155c0,0,.968-.923,2.284-1.95" transform="translate(28.627 -5.639)" fill="none" stroke="#fffefa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
     </g>
   </g>
 </svg>
