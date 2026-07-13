@@ -1,15 +1,17 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'BMJUA';
-  src: url("fonts/BMJUA_ttf.ttf") format("ttf"), url("fonts/BMJUA_otf.otf") format('otf'), url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+  src: url("fonts/BMJUA.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
-@font-face{
+@font-face {
   font-family: 'NanumSquare';
-  src : url("fonts/NanumSquareB.ttf") format("ttf"),url("fonts/NanumSquareB.otf") format("otf");
+  src: url("fonts/NanumSquareB.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 *{
@@ -63,7 +65,7 @@ video::-webkit-media-controls-panel{
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.4);
-  background: url(../img/main_background.png) top center no-repeat;
+  background: url(../img/main_background.webp) top center no-repeat;
   background-size: cover;
 }
 #app > ul#allPages{
@@ -75,13 +77,42 @@ video::-webkit-media-controls-panel{
   background: transparent;
   flex-direction: column;
 }
-.test{
+.page-slide{
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   overflow: scroll;
   text-align: center;
+}
+/* 내부 캐러셀 페이지: image 상단, context는 image 바로 아래, slideBox는 하단 */
+.page-slide:has([data-carousel]) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.page-slide:has([data-carousel]) .image {
+  flex-shrink: 0;
+  width: 100%;
+  margin-bottom: 0;
+}
+.page-slide:has([data-carousel]) .contents {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 48px) !important;
+  margin: 0 auto;
+  padding: 0 0 2vh;
+  min-height: 0;
+}
+.page-slide:has([data-carousel]) .context {
+  flex-shrink: 0;
+  margin: 0 0 2vh;
+}
+.page-slide:has([data-carousel]) .slideBox {
+  margin-top: auto;
+  flex-shrink: 0;
 }
 .left{
     left: 0;
@@ -91,7 +122,7 @@ video::-webkit-media-controls-panel{
 }
 .button{
   position: fixed;
-  z-index: 100;
+  z-index: 50;
   cursor: pointer;
 }
 #left{
@@ -145,16 +176,16 @@ video::-webkit-media-controls-panel{
     word-break: keep-all;
     color: #3C3E46;
 }
-#test2 > .contents > .context{
+#slide-about > .contents > .context{
   margin-top: 20px;
 }
-#test7 .contents{
+#slide-seniors .contents{
   font-size: 40px;
   line-height: 48px;
   font-family: "BMJUA";
   padding: 0;
 }
-#test7 .contents  #senior-story{
+#slide-seniors .contents  #senior-story{
   margin: 80px 0 8px;
 }
 #senior-story-subtitle{
@@ -162,7 +193,7 @@ video::-webkit-media-controls-panel{
   line-height: 24px;
   margin-bottom: 20px;
 }
-#test8 > .contents{
+#slide-contact > .contents{
   height: auto !important;
 }
 
@@ -254,20 +285,123 @@ video::-webkit-media-controls-panel{
   right: 0;
   bottom: 0;
 }
-/* VR 360도 */
-#panorama {
-    width: 100%;
-    height: 15vh;
-    position: relative;
-    z-index: 1000;
-    display: table;
-    -moz-transform-origin: top left;
-    -webkit-transform-origin: top left;
-    -ms-transform-origin: top left;
-    transform-origin: top left;
+/* VR 360도 미리보기 (캐러셀 썸네일) */
+.panorama-trigger {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+  display: block;
 }
-.pnlm-zoom-controls{
-  display:none !important;
+.panorama-trigger img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.panorama-badge {
+  position: absolute;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.panorama-top-badge{
+  left: 8px;
+  top: 8px;
+}
+.panorama-bottom-badge{
+  right: 8px;
+  bottom: 8px;
+}
+/* 공통 모달 */
+.app-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.app-modal.is-open {
+  display: flex;
+}
+.app-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+.app-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+.app-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.app-modal__title {
+  margin: 0;
+  padding: 20px 56px 12px 20px;
+  font-family: 'BMJUA', sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  color: #212742;
+  text-align: left;
+}
+.app-modal--panorama .app-modal__title {
+  font-family: 'NanumSquare', sans-serif;
+  font-weight: bold;
+}
+.app-modal__body {
+  padding: 0 20px 20px;
+}
+.app-modal__message {
+  margin: 0;
+  padding: 24px 0 8px;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  color: #3C3E46;
+  text-align: center;
+  word-break: keep-all;
+}
+.panorama-viewer {
+  width: 100%;
+  height: 60vh;
+  max-height: 520px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.app-modal .pnlm-zoom-controls {
+  display: block !important;
 }
 
 .slideTitle{
@@ -407,7 +541,7 @@ menu ul.account li a{
 }
 
 /* swipe */
-.swiper-container #test7{
+.swiper-container #slide-seniors{
   overflow: scroll !important;
 }
 .swiper-button-next, .swiper-button-prev{
@@ -423,53 +557,77 @@ menu ul.account li a{
   height: 0;
 }
 
-/* slick */
-.slick-prev:before, .slick-next:before{
-  color: black !important;
+.slideBox {
+  width: 100%;
+  position: relative;
+  z-index: 110;
+  overflow: visible;
+  padding: 0 28px;
+  margin-bottom: 100px;
 }
-.slick-prev:before{
-  content: url(../img/swipe-L.svg);
-}
-.slick-next:before{
-  content: url(../img/swipe-R.svg);
-}
-.slick-prev, .slick-next{
-  z-index: 11;
-  top: 40% !important;
-}
-.slick-prev{
-  left: -24px !important;
-}
-.slick-next{
-  right: 4px !important;
-}
-.slick-dots li{
-  width: auto !important;
-}
-.one-time{
+.inner-swiper.swiper-container {
+  width: 100%;
   height: 15vh;
+  position: relative;
+  overflow: hidden;
 }
-.slick-track div.slick-slide:nth-child(odd){
-    padding-right: 10px;
+.inner-swiper > .swiper-wrapper {
+  height: 100%;
+  align-items: stretch;
 }
-.slick-track div.slick-slide:nth-child(even){
-    padding-left: 10px;
+.inner-swiper .swiper-slide {
+  height: 100%;
+  width: 50% !important;
+  margin-right: 0 !important;
+  padding: 0 5px;
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+.inner-swiper-prev,
+.inner-swiper-next {
+  position: absolute;
+  z-index: 120;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  margin-top: 0;
+  cursor: pointer;
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.inner-swiper-prev.swiper-button-disabled,
+.inner-swiper-next.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+.inner-swiper-prev {
+  left: 4px;
+  background-image: url(../img/swipe-L.svg);
+}
+.inner-swiper-next {
+  right: 4px;
+  background-image: url(../img/swipe-R.svg);
 }
 
-.slideBox{
-  width: 100%;
-}
-.slickBox > .mask, .slickBox.mask{
+.carousel-item > .mask,
+.carousel-item.mask {
   width: 100%;
   height: 100%;
   border-radius: 20px;
   overflow: hidden;
+  flex: 1;
 }
-.slickBox > .mask > img{
+.carousel-item > .mask > img {
   width: 100%;
-  height: 15vh;
+  height: 100%;
   object-fit: cover;
-}
-.slickBox > #panorama{
-  object-fit: cover;
+  display: block;
 }

@@ -1,0 +1,14 @@
+{
+  "name": "kccc-info",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:images": "node scripts/build-images.mjs",
+    "build:css": "node scripts/build-css.mjs",
+    "build": "npm run build:images && npm run build:css"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5",
+    "wawoff2": "^2.0.1"
+  }
+}
