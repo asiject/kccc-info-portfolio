@@ -1,4 +1,6 @@
 {
+  "installCommand": "",
+  "buildCommand": "",
   "headers": [
     {
       "source": "/css/(.*)",
